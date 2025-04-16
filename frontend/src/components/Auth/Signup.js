@@ -63,6 +63,7 @@
 // export default Signup;
 import React, { useState } from 'react';
 import axios from 'axios';
+import './AuthForm.css'
 
 function Signup() {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
@@ -83,14 +84,16 @@ function Signup() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className='auth-form-container'>
+    <form className='auth-form' onSubmit={handleSubmit}>
       <h2>Signup</h2>
       <input name="name" placeholder="Name" onChange={handleChange} required />
       <input name="email" placeholder="Email" onChange={handleChange} required />
       <input name="password" placeholder="Password" type="password" onChange={handleChange} required />
       <button type="submit">Register</button>
     </form>
-  );
+    </div>
+);
 }
 
 export default Signup;

@@ -218,6 +218,9 @@
 // export default EmployeeList;
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../../App.css'
+import '../Auth/AuthForm.css'
+// import '../Employees/employee.css'
 
 function EmployeeList() {
   const [employees, setEmployees] = useState([]);
@@ -273,26 +276,62 @@ function EmployeeList() {
   };
 
   return (
-    <div>
+    
+    <div className="container">
+      
       <h2>Employee Form</h2>
-      <form onSubmit={handleSubmit}>
+
+      <div className='form-wrapper'>
+      <form className='auth-form' onSubmit={handleSubmit} >
         <input name="name" value={form.name} placeholder="Name" onChange={handleChange} required />
         <input name="department" value={form.department} placeholder="Department" onChange={handleChange} required />
         <input name="phone" value={form.phone} placeholder="Phone" onChange={handleChange} required />
         <input name="joining_date" value={form.joining_date} type="date" onChange={handleChange} required />
         <button type="submit">{editingId ? 'Update' : 'Add'} Employee</button>
       </form>
+      </div>
+      
+      {/* <div className='container'> */}
+        <h2>Employee List</h2>
+        {/* <ul>
+          {employees.map(emp => (
+            <li key={emp.id}>
+              {emp.name} - {emp.department} - {emp.phone} - {emp.joining_date}
+              <button onClick={() => handleEdit(emp)}>Edit</button>
+              <button onClick={() => handleDelete(emp.id)}>Delete</button>
+            </li>
+          ))}
+        </ul> */}
+      {/* </div> */}
 
-      <h2>Employee List</h2>
-      <ul>
-        {employees.map(emp => (
-          <li key={emp.id}>
-            {emp.name} - {emp.department} - {emp.phone} - {emp.joining_date}
-            <button onClick={() => handleEdit(emp)}>Edit</button>
-            <button onClick={() => handleDelete(emp.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+      <table className="employee-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Joining Date</th>
+      <th>Phone</th>
+      <th>Department</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {employees.map(emp => (
+      <tr key={emp.id}>
+        <td>{emp.name}</td>
+        <td>{emp.joining_date}</td>
+        <td>{emp.phone}</td>
+        <td>{emp.department}</td>
+        <td className="action-buttons">
+          <button className="edit" onClick={() => handleEdit(emp)}>Edit</button>
+          <button className="delete" onClick={() => handleDelete(emp.id)}>Delete</button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+
+
     </div>
   );
 }

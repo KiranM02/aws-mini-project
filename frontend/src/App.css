@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,99 @@
   to {
     transform: rotate(360deg);
   }
+} */
+/* Reset some default browser styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Center containers */
+.container {
+  /* max-width: 600px; */
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form Styles */
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #145ea8;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  margin-top: 30px;
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #1976d2;
+  color: white;
+}
+
+button.edit,
+button.delete {
+  padding: 6px 12px;
+  margin: 2px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
+
+button.edit {
+  background-color: #4caf50;
+}
+
+button.delete {
+  background-color: #f44336;
 }

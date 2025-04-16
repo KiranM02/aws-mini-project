@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-// import './App.css';
+import './App.css';
 
 // function App() {
 //   return (
@@ -54,11 +54,15 @@ import Signup from './components/Auth/Signup';
 import Signin from './components/Auth/Signin';
 // import EmployeeList from './components/EmployeeList';
 import EmployeeList from './components/Employees/EmployeeList';
+import Navbar from './components/Navbar';
 
 
 function App() {
   return (
+    <>
+
     <Router>
+      <Navbar/>
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
@@ -66,6 +70,7 @@ function App() {
         <Route path="/employees" element={<EmployeeList />} />
 </Routes>
     </Router>
+    </>
   );
 }
 
