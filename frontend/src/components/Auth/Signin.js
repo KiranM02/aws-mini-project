@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AuthForm.css';
+import BASE_URL from '../../config';
 
 
 function Signin() {
@@ -11,7 +12,8 @@ function Signin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/signin', form);
+      // const res = await axios.post('http://localhost:5000/api/auth/signin', form);
+      const res = await axios.post(`${BASE_URL}/api/auth/signin`, form);
       localStorage.setItem('token', res.data.token);
 //       // Example during login:
 // localStorage.setItem('token', response.data.token);

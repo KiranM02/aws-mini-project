@@ -221,6 +221,7 @@ import axios from 'axios';
 import '../../App.css'
 import '../Auth/AuthForm.css'
 // import '../Employees/employee.css'
+import BASE_URL from '../../config';
 
 function EmployeeList() {
   const [employees, setEmployees] = useState([]);
@@ -230,7 +231,8 @@ function EmployeeList() {
   const token = localStorage.getItem('token'); // Assuming JWT token is stored after login
 
   const fetchEmployees = async () => {
-    const res = await axios.get('http://localhost:5000/api/employees', {
+    // const res = await axios.get('http://localhost:5000/api/employees', {
+      const res = await axios.get(`${BASE_URL}/api/employees`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setEmployees(res.data);
@@ -245,12 +247,14 @@ function EmployeeList() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (editingId) {
-      await axios.put(`http://localhost:5000/api/employees/${editingId}`, form, {
+      // await axios.put(`http://localhost:5000/api/employees/${editingId}`, form, {
+        await axios.put(`${BASE_URL}/api/employees/${editingId}`, form, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEditingId(null);
     } else {
-      await axios.post('http://localhost:5000/api/employees', form, {
+      // await axios.post('http://localhost:5000/api/employees', form, {
+        await axios.post(`${BASE_URL}/api/employees`, form, {
         headers: { Authorization: `Bearer ${token}` }
       });
     }
@@ -269,7 +273,8 @@ function EmployeeList() {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/employees/${id}`, {
+    // await axios.delete(`http://localhost:5000/api/employees/${id}`, {
+      await axios.delete(`${BASE_URL}/api/employees/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     fetchEmployees();

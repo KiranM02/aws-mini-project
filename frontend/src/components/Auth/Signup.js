@@ -64,6 +64,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AuthForm.css'
+import BASE_URL from '../../config';
 
 function Signup() {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
@@ -73,7 +74,8 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/signup', form);
+      // const res = await axios.post('http://localhost:5000/api/auth/signup', form);
+      const res = await axios.post(`${BASE_URL}/api/auth/signup`, form);
       // Example during login:
 // localStorage.setItem('token', response.data.token);
 
